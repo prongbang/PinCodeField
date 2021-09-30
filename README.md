@@ -1,5 +1,6 @@
 # PinCodeField
 
+![image](https://user-images.githubusercontent.com/6635954/135472253-d1b1a52d-fe2d-495e-a13a-d09324817e8c.png)
 
 ### Swift Package Manager
 
