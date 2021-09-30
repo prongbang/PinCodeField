@@ -9,11 +9,11 @@ import SwiftUI
 public struct PinCodeField: View {
     
     var max: Int = 6
-    var boxSize = 50.0
+    var boxSize: CGFloat = 50.0
     var backgroundColor: Color = Color(#colorLiteral(red: 0.9176470588, green: 0.9058823529, blue: 0.9254901961, alpha: 1))
-    var cornerRadius = 6.0
+    var cornerRadius: CGFloat = 6.0
     var borderColor: Color = Color(#colorLiteral(red: 0.9176470588, green: 0.9058823529, blue: 0.9254901961, alpha: 1))
-    var borderWidth = 2.0
+    var borderWidth: CGFloat = 2.0
     var textColor: Color = Color(#colorLiteral(red: 0.4823529412, green: 0.4823529412, blue: 0.4823529412, alpha: 1))
     
     @State var pin: String = ""
@@ -21,7 +21,25 @@ public struct PinCodeField: View {
     
     var handler: (String, (Bool) -> Void) -> Void
     
-    public init() {}
+    public init(
+        max: Int = 6,
+        boxSize: CGFloat = 50.0,
+        backgroundColor: Color = Color(#colorLiteral(red: 0.9176470588, green: 0.9058823529, blue: 0.9254901961, alpha: 1)),
+        cornerRadius: CGFloat = 6.0,
+        borderColor: Color = Color(#colorLiteral(red: 0.9176470588, green: 0.9058823529, blue: 0.9254901961, alpha: 1)),
+        borderWidth: CGFloat = 2.0,
+        textColor: Color = Color(#colorLiteral(red: 0.4823529412, green: 0.4823529412, blue: 0.4823529412, alpha: 1)),
+        handler: @escaping (String, (Bool) -> Void) -> Void
+    ) {
+        self.max = max
+        self.boxSize = boxSize
+        self.backgroundColor = backgroundColor
+        self.cornerRadius = cornerRadius
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
+        self.textColor = textColor
+        self.handler = handler
+    }
     
     public var body: some View {
         VStack {
@@ -122,7 +140,9 @@ extension Int {
 
 struct PinCodeField_Previews: PreviewProvider {
     static var previews: some View {
-        PinCodeField { code, completion in
-        }
+        PinCodeField(handler: { code, completion in
+            print(code)
+            completion(true)
+        })
     }
 }
