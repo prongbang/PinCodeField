@@ -21,6 +21,8 @@ public struct PinCodeField: View {
     
     var handler: (String, (Bool) -> Void) -> Void
     
+    public init() {}
+    
     public var body: some View {
         VStack {
             ZStack {
