@@ -1,13 +1,30 @@
 # PinCodeField
 
-A description of this package.
+
+### Swift Package Manager
+
+In your `Package.swift` file, add `PinCodeField` dependency to corresponding targets:
+
+```swift
+let package = Package(
+  dependencies: [
+    .package(url: "https://github.com/prongbang/PinCodeField.git", from: "1.0.0"),
+  ],
+)
+```
+
+For Swift, import the module:
+
 
 ```swift
 import PinCodeField
+```
 
-PinCodeField { code, completion in
-    if (code == "555555") {
-        completion(true)
-    }
-}
+SwiftUI:
+
+```swift
+PinCodeField(handler: { code, completion in
+    print(code)
+    completion(true)
+})
 ```
